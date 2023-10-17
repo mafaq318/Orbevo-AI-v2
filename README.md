@@ -6,4 +6,6 @@
  - source the env before running using `source . env/bin/activate`
 
 ## Run
- - make run
+Source the python env that we setup before and run make
+ - . env/bin/activate
+ - make

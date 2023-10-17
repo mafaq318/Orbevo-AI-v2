@@ -1,0 +1,45 @@
+import os
+import pandas as pd 
+from alive_progress import alive_bar
+
+from .appendBTCPrice import appendBTCPrice
+from .createPercentChange import createPercentChange
+
+def processIndividualParameters(folder, calculate_BTC_price_change = True):
+    """
+    Loops over the files in the folder and adds individual parameter columns to each csv.
+    """ 
+
+    try:
+        if not os.path.exists(folder):
+            raise FileNotFoundError(f"error: directory '{folder}' not found")
+        
+        files = [f for f in os.listdir(folder) if os.path.isfile(os.path.join(folder, f)) and f.endswith('.csv')]
+        BTC_Path = os.path.join(folder, "BTC_Bitcoin.csv")
+
+        if not files:
+            raise FileNotFoundError(f"error: No csv files found in '{folder}'")
+        
+        if not os.path.exists(BTC_Path):
+            raise FileNotFoundError(f"error: No BTC_Bitcoin csv file found in '{folder}'")
+        
+        BTC_df = pd.read_csv(BTC_Path)
+        
+        print(f"Processing individual Parameters on '{folder}")
+        with alive_bar(len(files), bar = 'bubbles', spinner = 'notes2') as bar:
+            for file in files:
+                file_path = os.path.join(folder, file)
+                df = pd.read_csv(file_path)
+
+                df = appendBTCPrice(df,BTC_df)
+                df = createPercentChange(df,calculate_BTC_price_change)
+
+                df.to_csv(file_path, index=False) 
+                bar()
+    
+    except Exception as e:
+        print(f"An error occurred in processIndividualParameters.py: {str(e)}")
+
+    
+
+    
