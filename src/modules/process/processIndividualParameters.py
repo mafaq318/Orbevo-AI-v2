@@ -2,8 +2,8 @@ import os
 import pandas as pd 
 from alive_progress import alive_bar
 
-from .appendBTCPrice import appendBTCPrice
-from .createPercentChange import createPercentChange
+from .individual.appendBTCPrice import appendBTCPrice
+from .individual.createPercentChange import createPercentChange
 
 def processIndividualParameters(folder, calculate_BTC_price_change = True):
     """

@@ -8,9 +8,7 @@ from src.modules.preprocess.copydataset import copy_files
 
 from src.modules.process.getColumnsDone import getColumnsDone
 
-from src.modules.process.individual.processIndividualParameters import processIndividualParameters
-from src.modules.process.individual.appendBTCPrice import appendBTCPrice
-from src.modules.process.individual.createPercentChange import createPercentChange
+from src.modules.process.processIndividualParameters import processIndividualParameters
 
 src = os.path.join(os.getcwd(), "dataset", "raw")
 des = os.path.join(os.getcwd(), "dataset", "temp_raw")
