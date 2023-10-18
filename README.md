@@ -2,8 +2,7 @@
 
 ## Setup
 
- - Run`make all` to setup all the dependencies in your host linux machine
- - source the env before running using `source . env/bin/activate`
+ - Run`make setup_linux_env` to setup all the dependencies in your host linux machine
 
 ## Run
 Source the python env that we setup before and run make
