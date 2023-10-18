@@ -1,5 +1,3 @@
-import pandas as pd 
-from progress.spinner import MoonSpinner
 
 def appendBTCPrice(df, BTC_df):
     """

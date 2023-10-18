@@ -1,6 +1,3 @@
-import os
-import pandas as pd 
-from progress.spinner import MoonSpinner
 
 def createPercentChange(df , BTC):
     """
