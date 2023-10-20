@@ -6,6 +6,8 @@ from .individual.appendBTCPrice import appendBTCPrice
 from .individual.createPercentChange import createPercentChange
 from .individual.priceRange import priceRange
 
+
+from .getColumnsDone import getColumnsDone
 def processIndividualParameters(folder, calculate_BTC_price_change = True):
     """
     Loops over the files in the folder and adds individual parameter columns to each csv.
@@ -37,6 +39,8 @@ def processIndividualParameters(folder, calculate_BTC_price_change = True):
                 df = priceRange(df)
                 df.to_csv(file_path, index=False) 
                 bar()
+
+        getColumnsDone(BTC_Path,folder)
     
     except Exception as e:
         print(f"An error occurred in processIndividualParameters.py: {str(e)}")
