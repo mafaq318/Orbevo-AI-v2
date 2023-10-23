@@ -17,3 +17,5 @@ Volume_BTC,BTC Values
 PriceRangeHigh,High-Open/Open
 PriceRangeLow,Low-Open(Open
 Volume_Change,(Vol(i)-Vol(i-1))/Vol(i-1)
+SMA, Simple Moving Average
+EMA, Exponential Moving Average

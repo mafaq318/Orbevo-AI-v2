@@ -6,6 +6,9 @@ from .individual.appendBTCPrice import appendBTCPrice
 from .individual.createPercentChange import createPercentChange
 from .individual.priceRange import priceRange
 from .individual.volumeChange import volumeChange
+from .individual.simpleMovingAverage import simpleMovingAverage
+from .individual.exponentailMovingAverage import exponentialMovingAverage
+
 
 from .getColumnsDone import getColumnsDone
 def processIndividualParameters(folder, calculate_BTC_price_change = True):
@@ -38,6 +41,21 @@ def processIndividualParameters(folder, calculate_BTC_price_change = True):
                 df = createPercentChange(df,calculate_BTC_price_change)
                 df = priceRange(df)
                 df = volumeChange(df)
+                
+                df = simpleMovingAverage(df,5)
+                df = simpleMovingAverage(df,20)
+                df = simpleMovingAverage(df,50)
+                df = simpleMovingAverage(df,100)
+                df = simpleMovingAverage(df,200)
+                
+
+                EMA_Bias = True
+                df = exponentialMovingAverage(df,5,EMA_Bias)
+                df = exponentialMovingAverage(df,20,EMA_Bias)
+                df = exponentialMovingAverage(df,50,EMA_Bias)
+                df = exponentialMovingAverage(df,100,EMA_Bias)
+                df = exponentialMovingAverage(df,200,EMA_Bias)
+
                 df.to_csv(file_path, index=False) 
                 bar()
 
