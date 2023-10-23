@@ -1,0 +1,19 @@
+Column,Description
+Date,Price Date
+Open,Open Price
+High,High Price
+Low,Low Price
+Close,Close Price
+Adj Close,N/A
+Volume,Volume of trade
+Open_BTC,BTC Values
+High_BTC,BTC Values
+Low_BTC,BTC Values
+Close_BTC,BTC Values
+Adj Close_BTC,BTC Values
+Volume_BTC,BTC Values
+24hChange,Open-close/close
+24hChange_BTC,BTC Values
+PriceRangeHigh,High-Open/Open
+PriceRangeLow,Low-Open(Open
+Volume_Change,(Vol(i)-Vol(i-1))/Vol(i-1)
