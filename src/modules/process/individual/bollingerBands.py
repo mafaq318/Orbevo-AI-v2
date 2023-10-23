@@ -1,7 +1,7 @@
 
 def bollingerBands(df, num_std_dev, window):
     """
-    Read Data file and Append columns open,close,high,low and market cap of BTC with the coins df.
+    Computes Bollinger bands to measure volatility
     df: dataframe
     """ 
     try:

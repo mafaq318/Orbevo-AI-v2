@@ -9,6 +9,7 @@ from .individual.volumeChange import volumeChange
 from .individual.simpleMovingAverage import simpleMovingAverage
 from .individual.exponentailMovingAverage import exponentialMovingAverage
 from .individual.bollingerBands import bollingerBands
+from .individual.RSI import RSI
 
 from .getColumnsDone import getColumnsDone
 def processIndividualParameters(folder, calculate_BTC_price_change = True):
@@ -60,6 +61,9 @@ def processIndividualParameters(folder, calculate_BTC_price_change = True):
                 Bollinger_window = 20
                 df = bollingerBands(df,num_std_bollinger,Bollinger_window)
 
+                RSI_Window = 14
+                df = RSI(df,RSI_Window)
+                
                 df.to_csv(file_path, index=False) 
                 bar()
 
