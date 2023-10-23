@@ -8,7 +8,7 @@ from .individual.priceRange import priceRange
 from .individual.volumeChange import volumeChange
 from .individual.simpleMovingAverage import simpleMovingAverage
 from .individual.exponentailMovingAverage import exponentialMovingAverage
-
+from .individual.bollingerBands import bollingerBands
 
 from .getColumnsDone import getColumnsDone
 def processIndividualParameters(folder, calculate_BTC_price_change = True):
@@ -41,7 +41,7 @@ def processIndividualParameters(folder, calculate_BTC_price_change = True):
                 df = createPercentChange(df,calculate_BTC_price_change)
                 df = priceRange(df)
                 df = volumeChange(df)
-                
+
                 df = simpleMovingAverage(df,5)
                 df = simpleMovingAverage(df,20)
                 df = simpleMovingAverage(df,50)
@@ -55,6 +55,10 @@ def processIndividualParameters(folder, calculate_BTC_price_change = True):
                 df = exponentialMovingAverage(df,50,EMA_Bias)
                 df = exponentialMovingAverage(df,100,EMA_Bias)
                 df = exponentialMovingAverage(df,200,EMA_Bias)
+
+                num_std_bollinger = 2
+                Bollinger_window = 20
+                df = bollingerBands(df,num_std_bollinger,Bollinger_window)
 
                 df.to_csv(file_path, index=False) 
                 bar()

@@ -19,3 +19,4 @@ PriceRangeLow,Low-Open(Open
 Volume_Change,(Vol(i)-Vol(i-1))/Vol(i-1)
 SMA, Simple Moving Average
 EMA, Exponential Moving Average
+Bolling_Bands, Bollinger Upper Lower Middle Band to measure volatility
