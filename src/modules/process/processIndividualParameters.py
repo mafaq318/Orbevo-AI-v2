@@ -14,7 +14,7 @@ from .individual.MACD import MACD
 from .individual.volumeMovingAverage import volumeMovingAverage
 from .individual.OBV import OBV
 from .individual.volumeOscillator import volumeOscillator
-
+from .individual.volumeRelative import volumeRelative
 
 from .getColumnsDone import getColumnsDone
 def processIndividualParameters(folder, calculate_BTC_price_change = True):
@@ -54,6 +54,9 @@ def processIndividualParameters(folder, calculate_BTC_price_change = True):
                 short_period = 3
                 long_period = 5
                 df = volumeOscillator(df,short_period,long_period)
+
+                average_volume_period = 3
+                df = volumeRelative(df,average_volume_period)
 
                 df = volumeMovingAverage(df,5)
                 df = volumeMovingAverage(df,20)
