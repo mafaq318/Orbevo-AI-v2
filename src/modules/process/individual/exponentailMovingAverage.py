@@ -16,7 +16,7 @@ def exponentialMovingAverage(df,span,bias):
 
         df[EMA_Column].fillna(0, inplace=True)
         df[EMA_Norm_Column].fillna(0, inplace=True)
-        
+        df = df.drop(EMA_Column, axis=1)
         return df
     
     except Exception as e:

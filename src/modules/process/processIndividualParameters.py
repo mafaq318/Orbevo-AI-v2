@@ -11,6 +11,8 @@ from .individual.exponentailMovingAverage import exponentialMovingAverage
 from .individual.bollingerBands import bollingerBands
 from .individual.RSI import RSI
 from .individual.MACD import MACD
+from .individual.volumeMovingAverage import volumeMovingAverage
+from .individual.OBV import OBV
 
 from .getColumnsDone import getColumnsDone
 def processIndividualParameters(folder, calculate_BTC_price_change = True):
@@ -42,7 +44,15 @@ def processIndividualParameters(folder, calculate_BTC_price_change = True):
                 df = appendBTCPrice(df,BTC_df)
                 df = createPercentChange(df,calculate_BTC_price_change)
                 df = priceRange(df)
+
                 df = volumeChange(df)
+                df = OBV(df)
+                df = volumeMovingAverage(df,5)
+                df = volumeMovingAverage(df,20)
+                df = volumeMovingAverage(df,50)
+                df = volumeMovingAverage(df,100)
+                df = volumeMovingAverage(df,200)
+
 
                 df = simpleMovingAverage(df,5)
                 df = simpleMovingAverage(df,20)
@@ -69,7 +79,9 @@ def processIndividualParameters(folder, calculate_BTC_price_change = True):
                 short_term_period = 13
                 signal_period = 9
                 df = MACD(df,long_term_period, short_term_period, signal_period)
-                
+
+
+                df = df.fillna(0)
                 df.to_csv(file_path, index=False) 
                 bar()
 

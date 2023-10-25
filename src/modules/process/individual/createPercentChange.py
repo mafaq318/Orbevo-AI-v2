@@ -15,7 +15,6 @@ def createPercentChange(df , BTC):
             if '24hChange_BTC' not in df.columns:
                 df['24hChange_BTC'] = (df['Close_BTC'] - df['Open_BTC']) / df['Open_BTC']
         
-        df = df.fillna(0)
         return df
     
     except Exception as e:

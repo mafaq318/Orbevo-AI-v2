@@ -17,9 +17,11 @@ Volume_BTC,BTC Values
 PriceRangeHigh,High-Open/Open
 PriceRangeLow,Low-Open(Open
 Volume_Change,(Vol(i)-Vol(i-1))/Vol(i-1)
-SMA, Simple Moving Average
-EMA, Exponential Moving Average
+Normalized_VMA_x, Simple moving average volume
+Normalized_SMA_x, Simple Moving Average
+Normalized_EMA_x, Exponential Moving Average
 Bolling_Bands, Bollinger Upper Lower Middle Band to measure volatility
 RSI, computes RSI to calculate overbought or oversold conditions
 macd_signal_line,MACD 
 macd_histogram,MACD 
+OBV, On-Balance Volume

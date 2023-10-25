@@ -18,6 +18,9 @@ def simpleMovingAverage(df,window):
 
         df[SMA_Column].fillna(0, inplace=True)
         df[SMA_Norm_Column].fillna(0, inplace=True)
+        
+        df = df.drop(SMA_Column, axis=1)
+
         return df
     
     except Exception as e:

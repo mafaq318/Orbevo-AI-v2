@@ -9,7 +9,6 @@ def appendBTCPrice(df, BTC_df):
             pass
         else:
             df = df.merge(BTC_df, on='Date', suffixes=('', '_BTC'))
-            df = df.fillna(0)
     
         return df
     

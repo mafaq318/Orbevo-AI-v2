@@ -29,8 +29,6 @@ def MACD(df,long_term_period, short_term_period, signal_period):
 
         df = df.drop(['short_ema', 'long_ema', 'macd'], axis=1)
         
-        df = df.fillna(0)
-
         return df
     
     except Exception as e:

@@ -12,7 +12,6 @@ def priceRange(df):
         if 'PriceRangeLow' not in df.columns:
             df['PriceRangeLow'] = (df['Low'] - df['Open']) / df['Open']
         
-        df = df.fillna(0)
         return df
     
     except Exception as e:

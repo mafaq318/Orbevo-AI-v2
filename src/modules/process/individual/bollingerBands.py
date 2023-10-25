@@ -16,7 +16,6 @@ def bollingerBands(df, num_std_dev, window):
         df['Bollinger_Middle_Band'] = (df['Bollinger_Middle_Band'] - df['Bollinger_Lower_Band'].min()) / (df['Bollinger_Upper_Band'].max() - df['Bollinger_Lower_Band'].min())
         df['Bollinger_Lower_Band'] = (df['Bollinger_Lower_Band'] - df['Bollinger_Lower_Band'].min()) / (df['Bollinger_Upper_Band'].max() - df['Bollinger_Lower_Band'].min())
 
-        df = df.fillna(0)
         return df
     
     except Exception as e:
