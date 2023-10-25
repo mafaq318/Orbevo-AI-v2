@@ -21,3 +21,5 @@ SMA, Simple Moving Average
 EMA, Exponential Moving Average
 Bolling_Bands, Bollinger Upper Lower Middle Band to measure volatility
 RSI, computes RSI to calculate overbought or oversold conditions
+macd_signal_line,MACD 
+macd_histogram,MACD 

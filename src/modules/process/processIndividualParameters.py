@@ -10,6 +10,7 @@ from .individual.simpleMovingAverage import simpleMovingAverage
 from .individual.exponentailMovingAverage import exponentialMovingAverage
 from .individual.bollingerBands import bollingerBands
 from .individual.RSI import RSI
+from .individual.MACD import MACD
 
 from .getColumnsDone import getColumnsDone
 def processIndividualParameters(folder, calculate_BTC_price_change = True):
@@ -63,6 +64,11 @@ def processIndividualParameters(folder, calculate_BTC_price_change = True):
 
                 RSI_Window = 14
                 df = RSI(df,RSI_Window)
+
+                long_term_period = 26
+                short_term_period = 13
+                signal_period = 9
+                df = MACD(df,long_term_period, short_term_period, signal_period)
                 
                 df.to_csv(file_path, index=False) 
                 bar()
