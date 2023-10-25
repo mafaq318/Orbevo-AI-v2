@@ -13,6 +13,8 @@ from .individual.RSI import RSI
 from .individual.MACD import MACD
 from .individual.volumeMovingAverage import volumeMovingAverage
 from .individual.OBV import OBV
+from .individual.volumeOscillator import volumeOscillator
+
 
 from .getColumnsDone import getColumnsDone
 def processIndividualParameters(folder, calculate_BTC_price_change = True):
@@ -45,8 +47,14 @@ def processIndividualParameters(folder, calculate_BTC_price_change = True):
                 df = createPercentChange(df,calculate_BTC_price_change)
                 df = priceRange(df)
 
-                df = volumeChange(df)
+                Volume_change_period = 2
+                df = volumeChange(df,Volume_change_period)
                 df = OBV(df)
+
+                short_period = 3
+                long_period = 5
+                df = volumeOscillator(df,short_period,long_period)
+
                 df = volumeMovingAverage(df,5)
                 df = volumeMovingAverage(df,20)
                 df = volumeMovingAverage(df,50)
