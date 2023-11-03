@@ -19,7 +19,7 @@ def volumeOscillator(df,short_period,long_period):
         #max_value = df['Volume_Oscillator'].max()
 
         #df['Normalized_Volume_Oscillator'] = (df['Volume_Oscillator'] - min_value) / (max_value - min_value)
-        #df = df.drop(['Short_VMA', 'Long_VMA','Volume_Oscillator'], axis=1)
+        df = df.drop(['Short_VMA', 'Long_VMA'], axis=1)
 
         return df
     

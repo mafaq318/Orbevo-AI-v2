@@ -27,7 +27,6 @@ def supportResistance(df):
         df['Resistance3'] = df['High'] + 2 * (df['Pivot'] - df['Low'])
 
         
-        df = df.fillna(0)
         return df
     
     except Exception as e:

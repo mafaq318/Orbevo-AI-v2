@@ -9,7 +9,7 @@ def A_D_Line(df):
         df['Money_Flow_Volume'] = ((df['Close'] - df['Low']) - (df['High'] - df['Close'])) / (df['High'] - df['Low']) * df['Volume']
         df['A/D_Line'] = df['Money_Flow_Volume'].cumsum()
 
-        df = df.drop(['Money_Flow_Volume'], axis=1)
+       # df = df.drop(['Money_Flow_Volume'], axis=1)
         return df
     
     except Exception as e:

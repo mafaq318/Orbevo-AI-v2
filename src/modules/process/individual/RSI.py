@@ -18,7 +18,6 @@ def RSI(df,period):
 
         df['RSI']  = 100 - (100 / (1 + rs))
         
-        df = df.fillna(0)
         return df
     
     except Exception as e:
