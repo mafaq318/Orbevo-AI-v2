@@ -15,11 +15,11 @@ def volumeOscillator(df,short_period,long_period):
         # Calculate the Volume Oscillator
         df['Volume_Oscillator'] = df['Short_VMA'] - df['Long_VMA']
 
-        min_value = df['Volume_Oscillator'].min()
-        max_value = df['Volume_Oscillator'].max()
+        #min_value = df['Volume_Oscillator'].min()
+        #max_value = df['Volume_Oscillator'].max()
 
-        df['Normalized_Volume_Oscillator'] = (df['Volume_Oscillator'] - min_value) / (max_value - min_value)
-        df = df.drop(['Short_VMA', 'Long_VMA','Volume_Oscillator'], axis=1)
+        #df['Normalized_Volume_Oscillator'] = (df['Volume_Oscillator'] - min_value) / (max_value - min_value)
+        #df = df.drop(['Short_VMA', 'Long_VMA','Volume_Oscillator'], axis=1)
 
         return df
     

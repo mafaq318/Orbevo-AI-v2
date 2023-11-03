@@ -19,6 +19,10 @@ from .individual.volumeSpreadAnalysis import volumeSpreadAnalysis
 from .individual.climaxBuying import climaxBuying
 from .individual.volumeDivergence import volumeDivergence
 from .individual.A_D_Line import A_D_Line
+from .individual.supportResistance import supportResistance
+from .individual.volatilityMeasures import volatilityMeasures
+from .individual.stochasticOscillator import stochasticOscillator
+from .individual.ichimokuCloud import ichimokuCloud
 
 from .getColumnsDone import getColumnsDone
 def processIndividualParameters(folder, calculate_BTC_price_change = True):
@@ -101,6 +105,10 @@ def processIndividualParameters(folder, calculate_BTC_price_change = True):
 
 
                 df = climaxBuying(df)
+                df = supportResistance(df)
+                df = volatilityMeasures(df)
+                df = stochasticOscillator(df)
+                df = ichimokuCloud(df)
 
                 df = df.fillna(0)
                 df.to_csv(file_path, index=False) 
