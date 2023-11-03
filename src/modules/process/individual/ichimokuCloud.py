@@ -26,7 +26,7 @@ def ichimokuCloud(df):
         df['Senkou_Span_B'] = ((df['High'].rolling(window=senkou_b_period).max() + df['Low'].rolling(window=senkou_b_period).min()) / 2).shift(kijun_period)
 
         # Calculate the Kumo (Cloud)
-        df['Kumo'] = np.where(df['Senkou_Span_A'] > df['Senkou_Span_B'], 'Bullish', 'Bearish')
+        df['Kumo'] = np.where(df['Senkou_Span_A'] > df['Senkou_Span_B'], 1, 0)
 
         return df
     
