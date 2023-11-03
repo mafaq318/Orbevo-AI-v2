@@ -15,6 +15,10 @@ from .individual.volumeMovingAverage import volumeMovingAverage
 from .individual.OBV import OBV
 from .individual.volumeOscillator import volumeOscillator
 from .individual.volumeRelative import volumeRelative
+from .individual.volumeSpreadAnalysis import volumeSpreadAnalysis
+from .individual.climaxBuying import climaxBuying
+from .individual.volumeDivergence import volumeDivergence
+from .individual.A_D_Line import A_D_Line
 
 from .getColumnsDone import getColumnsDone
 def processIndividualParameters(folder, calculate_BTC_price_change = True):
@@ -58,6 +62,10 @@ def processIndividualParameters(folder, calculate_BTC_price_change = True):
                 average_volume_period = 3
                 df = volumeRelative(df,average_volume_period)
 
+                df = volumeSpreadAnalysis(df)
+                df = volumeDivergence(df)
+                df = A_D_Line(df)
+
                 df = volumeMovingAverage(df,5)
                 df = volumeMovingAverage(df,20)
                 df = volumeMovingAverage(df,50)
@@ -91,6 +99,8 @@ def processIndividualParameters(folder, calculate_BTC_price_change = True):
                 signal_period = 9
                 df = MACD(df,long_term_period, short_term_period, signal_period)
 
+
+                df = climaxBuying(df)
 
                 df = df.fillna(0)
                 df.to_csv(file_path, index=False) 

@@ -12,12 +12,8 @@ def volumeOscillator(df,short_period,long_period):
         # Calculate the long-term volume moving average
         df['Long_VMA'] = df['Volume'].rolling(window=long_period).mean()
 
-        
-
         # Calculate the Volume Oscillator
         df['Volume_Oscillator'] = df['Short_VMA'] - df['Long_VMA']
-
-        
 
         min_value = df['Volume_Oscillator'].min()
         max_value = df['Volume_Oscillator'].max()
