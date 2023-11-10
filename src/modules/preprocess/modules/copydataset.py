@@ -2,7 +2,7 @@ import shutil
 import os
 
 
-def copy_files(src_dir, dest_dir):
+def copydataset(src_dir, dest_dir):
     """
     This Function copies all contents of src_dir to dest_dir. Useful for preprocessing of raw dataset such that original data files are retained.
     """
@@ -11,9 +11,6 @@ def copy_files(src_dir, dest_dir):
             raise FileNotFoundError(
                 f"error: Source directory '{src_dir}' not found.")
 
-        if os.path.exists(dest_dir):
-            print(f"copydataset.py: Source directory '{dest_dir}' already exists")
-            return
 
         if not os.path.exists(dest_dir):
             os.makedirs(dest_dir)

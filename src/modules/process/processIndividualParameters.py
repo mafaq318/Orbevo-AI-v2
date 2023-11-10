@@ -4,27 +4,6 @@ import numpy as np
 
 from alive_progress import alive_bar
 
-from .individual.appendBTCPrice import appendBTCPrice
-from .individual.createPercentChange import createPercentChange
-from .individual.priceRange import priceRange
-from .individual.volumeChange import volumeChange
-from .individual.simpleMovingAverage import simpleMovingAverage
-from .individual.exponentailMovingAverage import exponentialMovingAverage
-from .individual.bollingerBands import bollingerBands
-from .individual.RSI import RSI
-from .individual.MACD import MACD
-from .individual.volumeMovingAverage import volumeMovingAverage
-from .individual.OBV import OBV
-from .individual.volumeOscillator import volumeOscillator
-from .individual.volumeRelative import volumeRelative
-from .individual.volumeSpreadAnalysis import volumeSpreadAnalysis
-from .individual.climaxBuying import climaxBuying
-from .individual.volumeDivergence import volumeDivergence
-from .individual.A_D_Line import A_D_Line
-from .individual.supportResistance import supportResistance
-from .individual.volatilityMeasures import volatilityMeasures
-from .individual.stochasticOscillator import stochasticOscillator
-from .individual.ichimokuCloud import ichimokuCloud
 
 from .getColumnsDone import getColumnsDone
 def processIndividualParameters(folder, calculate_BTC_price_change = True):
