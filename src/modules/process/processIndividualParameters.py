@@ -1,5 +1,7 @@
 import os
 import pandas as pd 
+import numpy as np
+
 from alive_progress import alive_bar
 
 from .individual.appendBTCPrice import appendBTCPrice
@@ -111,6 +113,7 @@ def processIndividualParameters(folder, calculate_BTC_price_change = True):
                 df = ichimokuCloud(df)
 
                 df = df.fillna(0)
+                df.replace([np.inf, -np.inf], 0, inplace=True)
                 df.to_csv(file_path, index=False) 
                 bar()
 

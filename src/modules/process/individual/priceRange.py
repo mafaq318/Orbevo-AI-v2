@@ -6,11 +6,14 @@ def priceRange(df):
     """ 
     try:
         
-        if 'PriceRangeHigh' not in df.columns:
-            df['PriceRangeHigh'] = (df['High'] - df['Open']) / df['Open']
-        
-        if 'PriceRangeLow' not in df.columns:
-            df['PriceRangeLow'] = (df['Low'] - df['Open']) / df['Open']
+        df['PriceRangeHigh'] = (df['High'] - df['Open']) / df['Open']
+    
+        df['PriceRangeLow'] = (df['Low'] - df['Open']) / df['Open']
+
+        df['PriceRangeHigh_BTC'] = (df['High_BTC'] - df['Open_BTC']) / df['Open_BTC']
+    
+
+        df['PriceRangeLow_BTC'] = (df['Low_BTC'] - df['Open_BTC']) / df['Open_BTC']
         
         return df
     

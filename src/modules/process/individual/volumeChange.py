@@ -7,6 +7,7 @@ def volumeChange(df,vroc_period):
     try:
         
         df['Volume_Change'] = (df['Volume'] / df['Volume'].shift(vroc_period) - 1) * 100
+        df['BTC_Volume_Change'] = (df['Volume_BTC'] / df['Volume_BTC'].shift(vroc_period) - 1) * 100
 
         return df
     
