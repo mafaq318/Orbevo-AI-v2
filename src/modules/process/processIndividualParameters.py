@@ -53,64 +53,7 @@ def processIndividualParameters(folder, calculate_BTC_price_change = True):
                 file_path = os.path.join(folder, file)
                 df = pd.read_csv(file_path)
 
-                df = appendBTCPrice(df,BTC_df)
-                df = createPercentChange(df,calculate_BTC_price_change)
-                df = priceRange(df)
-
-                Volume_change_period = 2
-                df = volumeChange(df,Volume_change_period)
-                df = OBV(df)
-
-                short_period = 3
-                long_period = 5
-                df = volumeOscillator(df,short_period,long_period)
-
-                average_volume_period = 3
-                df = volumeRelative(df,average_volume_period)
-
-                df = volumeSpreadAnalysis(df)
-                df = volumeDivergence(df)
-                df = A_D_Line(df)
-
-                df = volumeMovingAverage(df,5)
-                df = volumeMovingAverage(df,20)
-                df = volumeMovingAverage(df,50)
-                df = volumeMovingAverage(df,100)
-                df = volumeMovingAverage(df,200)
-
-
-                df = simpleMovingAverage(df,5)
-                df = simpleMovingAverage(df,20)
-                df = simpleMovingAverage(df,50)
-                df = simpleMovingAverage(df,100)
-                df = simpleMovingAverage(df,200)
-                
-
-                EMA_Bias = True
-                df = exponentialMovingAverage(df,5,EMA_Bias)
-                df = exponentialMovingAverage(df,20,EMA_Bias)
-                df = exponentialMovingAverage(df,50,EMA_Bias)
-                df = exponentialMovingAverage(df,100,EMA_Bias)
-                df = exponentialMovingAverage(df,200,EMA_Bias)
-
-                num_std_bollinger = 2
-                Bollinger_window = 20
-                df = bollingerBands(df,num_std_bollinger,Bollinger_window)
-
-                RSI_Window = 14
-                df = RSI(df,RSI_Window)
-
-                long_term_period = 26
-                short_term_period = 13
-                signal_period = 9
-                df = MACD(df,long_term_period, short_term_period, signal_period)
-
-
-                df = climaxBuying(df)
-                df = supportResistance(df)
-                df = volatilityMeasures(df)
-                df = stochasticOscillator(df)
-                df = ichimokuCloud(df)
+            
 
                 df = df.fillna(0)
                 df.replace([np.inf, -np.inf], 0, inplace=True)
